@@ -13,7 +13,7 @@ E2E_TEST_DIR=$ROOT_DIR/libs/sdk-ui-tests-e2e
 _RUSH="${DIR}/docker_rush.sh"
 _RUSHX="${DIR}/docker_rushx.sh"
 
-# : "${SDK_BACKEND:?}"  # Todo: To be enabled later
+: "${SDK_BACKEND:?}"
 
 sdk_backend=$(tr <<< $SDK_BACKEND '[:upper:]' '[:lower:]')
 
@@ -34,8 +34,11 @@ $_RUSHX libs/sdk-ui-tests-e2e build-scenarios
 export IMAGE_ID=${sdk_backend}-gooddata-ui-sdk-scenarios-${EXECUTOR_NUMBER}
 trap "rm -f $E2E_TEST_DIR/.env; docker rmi --force $IMAGE_ID || true" EXIT
 
+echo "Running against $SDK_BACKEND with at directory $E2E_TEST_DIR"
+echo "Filtering by tags: $CYPRESS_TEST_TAGS"
+
 docker build --no-cache --file Dockerfile_local -t $IMAGE_ID . || exit 1
 
-NO_COLOR=1 docker-compose -f docker-compose-isolated.yaml up \
+NO_COLOR=1 docker-compose -f docker-compose-isolated.yaml -p ui-sdk-e2e-tests-$BUILD_ID up \
   --abort-on-container-exit --exit-code-from isolated-tests \
   --force-recreate --always-recreate-deps --renew-anon-volumes --no-color
