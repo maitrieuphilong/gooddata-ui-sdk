@@ -13,7 +13,7 @@ E2E_TEST_DIR=$ROOT_DIR/libs/sdk-ui-tests-e2e
 _RUSH="${DIR}/docker_rush.sh"
 _RUSHX="${DIR}/docker_rushx.sh"
 
-: "${SDK_BACKEND:?}"
+# : "${SDK_BACKEND:?}"
 
 sdk_backend=$(tr <<< $SDK_BACKEND '[:upper:]' '[:lower:]')
 
@@ -39,6 +39,6 @@ echo "Filtering by tags: $CYPRESS_TEST_TAGS"
 
 docker build --no-cache --file Dockerfile_local -t $IMAGE_ID . || exit 1
 
-NO_COLOR=1 docker-compose -f docker-compose-isolated.yaml -p ui-sdk-e2e-tests-$BUILD_ID up \
+NO_COLOR=1 docker-compose -f docker-compose-isolated.yaml up \
   --abort-on-container-exit --exit-code-from isolated-tests \
   --force-recreate --always-recreate-deps --renew-anon-volumes --no-color
