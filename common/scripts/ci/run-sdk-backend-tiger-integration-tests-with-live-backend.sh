@@ -16,8 +16,8 @@ IS_AIO=$IS_AIO
 AIO_VERSION=$AIO_VERSION
 EXTRA_PARAMS=""
 
-$_RUSH install
-$_RUSH build -t sdk-backend-tiger
+# $_RUSH install
+# $_RUSH build -t sdk-backend-tiger
 
 log() {
   local now;
