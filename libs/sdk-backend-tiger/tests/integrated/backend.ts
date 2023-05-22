@@ -80,6 +80,25 @@ function getRecordingsWorkspaceId() {
     return "2b7da2afb0d34f4397481c4d2a2d50b0";
 }
 
+function getRecordingHost() {
+    return "https://staging.anywhere.gooddata.com";
+}
+
+export function sanitizeWorkspaceDemo(result: object) {
+    let data = JSON.stringify(result, null, 2);
+    if (process.env.WORKSPACE_ID) {
+        const workspace: string = process.env.WORKSPACE_ID;
+        data = data.replace(new RegExp(workspace, "g"), getRecordingsWorkspaceId());
+    }
+    // if(process.env.IS_AIO == "true")
+    {
+        // truong hop chay AIO
+        const host: string = process.env.TEST_HOST ?? "http://gooddata-cn-ce-aio-1:3001";
+        data = data.replace(new RegExp(host, "g"), getRecordingHost());
+    }
+    return JSON.parse(data);
+}
+
 export function sanitizeKeyWithNewValue(result: object, key: string, newValue: string) {
     const fixtureContent = JSON.stringify(result);
     const newResult = JSON.parse(fixtureContent, (k, v) => (k === key ? newValue : v));
