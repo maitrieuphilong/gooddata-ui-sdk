@@ -17,4 +17,4 @@ For the similar package for the GoodData platform, see [`@gooddata/sdk-backend-b
 
 (C) 2017-2022 GoodData Corporation
 
-This project is under MIT License. See [LICENSE](https://github.com/gooddata/gooddata-ui-sdk/blob/master/libs/sdk-backend-tiger/LICENSE).
+This project is under MIT License. See [LICENSE](https://github.com/gooddata/gooddata-ui-sdk/blob/master/libs/sdk-backend-tiger/LICENSE)..
