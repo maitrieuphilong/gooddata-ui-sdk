@@ -1,22 +1,18 @@
 {
-    "id": "2413e776-774f-4140-976f-773482f0a2c5",
-    "name": "api_v1_entities_workspaces_00d48e50c5e0442abc2181a7afd0f66b_visualizationobjects",
+    "id": "0e3887fe-0390-4ca3-af4c-3097807debdd",
+    "name": "api_v1_actions_resolveentitlements",
     "request": {
-        "url": "/api/v1/entities/workspaces/00d48e50c5e0442abc2181a7afd0f66b/visualizationObjects?size=250&page=0",
+        "url": "/api/v1/actions/resolveEntitlements",
         "method": "GET",
         "headers": {
             "Accept": {
-                "equalTo": "application/vnd.gooddata.api+json"
-            },
-            "Content-Type": {
-                "equalTo": "application/vnd.gooddata.api+json",
-                "caseInsensitive": true
+                "equalTo": "application/json, text/plain, */*"
             }
         }
     },
     "response": {
         "status": 200,
-        "bodyFileName": "api_v1_entities_workspaces_00d48e50c5e0442abc2181a7afd0f66b_visualizationobjects-2413e776-774f-4140-976f-773482f0a2c5.json",
+        "body": "[{\"expiry\":\"2026-04-26\",\"name\":\"Contract\"},{\"name\":\"UnlimitedWorkspaces\"},{\"name\":\"UnlimitedUsers\"},{\"name\":\"CustomTheming\"},{\"name\":\"UiLocalization\"},{\"name\":\"WhiteLabeling\"},{\"name\":\"PdfExports\"}]",
         "headers": {
             "X-Content-Type-Options": "nosniff",
             "Pragma": "no-cache",
@@ -27,10 +23,10 @@
             "Vary": ["Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"],
             "Expires": "0",
             "X-XSS-Protection": "1 ; mode=block",
-            "Content-Type": "application/vnd.gooddata.api+json"
+            "Content-Type": "application/json"
         }
     },
-    "uuid": "2413e776-774f-4140-976f-773482f0a2c5",
+    "uuid": "0e3887fe-0390-4ca3-af4c-3097807debdd",
     "persistent": true,
-    "insertionIndex": 9
+    "insertionIndex": 4
 }
